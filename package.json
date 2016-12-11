@@ -2,7 +2,7 @@
     "name": "typewriter",
     "displayName": "Typewriter",
     "description": "Human-like code code typer",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "dansilver",
     "engines": {
         "vscode": "^1.5.0"
@@ -34,7 +34,7 @@
             "title": "Typewriter: Play"
         }, {
             "command": "extension.setTypewriter",
-            "title": "Typewriter: Set"
+            "title": "Typewriter: Set from selection"
         }]
     },
     "scripts": {
@@ -49,5 +49,6 @@
         "mocha": "^2.3.3",
         "@types/node": "^6.0.40",
         "@types/mocha": "^2.2.32"
-    }
+    },
+    "icon": "assets/1481463247_package_wordprocessing_iconfinder.png"
 }

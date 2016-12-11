@@ -1,8 +1,6 @@
 # Typewriter for VS Code - Human like typing for GIFs and live demos
 
-
-
-## Features
+![Demo gif of setting and playback](assets/demo.gif)
 
 
 
@@ -22,3 +20,4 @@ Initial release of Typewriter!
 
 ## Future ideas!
 * Language awareness when typing - brackets and braces first, then fill in contents
+* Set the text from other sources besides a selection including files and the clipboard
