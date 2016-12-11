@@ -11,13 +11,17 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.playback",
+        "onCommand:extension.setTypewriter"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [{
-            "command": "extension.sayHello",
-            "title": "Typewriter"
+            "command": "extension.playback",
+            "title": "Typewriter: Play"
+        }, {
+            "command": "extension.setTypewriter",
+            "title": "Typewriter: Set"
         }]
     },
     "scripts": {
