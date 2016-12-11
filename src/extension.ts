@@ -8,7 +8,11 @@ let typewriterBuffer:string;
 export function activate(context: vscode.ExtensionContext) {
 
     let playTypewriterCmd = vscode.commands.registerCommand('extension.playback', () => {
-        type(typewriterBuffer);
+
+
+        let minSpeed = vscode.workspace.getConfiguration('typewriter').get<number>('TypingMinSpeed') | 30;
+        let maxSpeed = vscode.workspace.getConfiguration('typewriter').get<number>('TypingMaxSpeed') | 120;
+        type(typewriterBuffer, minSpeed, maxSpeed);
     });
 
     let setTypewriterCmd = vscode.commands.registerCommand('extension.setTypewriter', () => {

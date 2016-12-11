@@ -1,10 +1,10 @@
-import * as vscode from 'vscode';
+import {window, workspace, Position, Selection} from 'vscode';
 
-const JitterRange = [30, 120];
+
 const charsToPauseOn = [",", '.', '!'];
 
-export function type(textToInsert:string) {
-    var editor = vscode.window.activeTextEditor;
+export function type(textToInsert:string, minSpeed:number, maxSpeed:number) {
+    var editor = window.activeTextEditor;
     if (!editor) {
         return; // No open text editor
     };
@@ -22,17 +22,17 @@ export function type(textToInsert:string) {
             line++;
         }
 
-        timeout = getRandomArbitrary(JitterRange[0], JitterRange[1]);
+        timeout = getRandomArbitrary(minSpeed, maxSpeed);
 
         (function(line, pos) {
             setTimeout(function() {
-                vscode.window.activeTextEditor.edit((editbuilder) => {
-                    let posToInsert = new vscode.Position(line, pos);
+                window.activeTextEditor.edit((editbuilder) => {
+                    let posToInsert = new Position(line, pos);
                     
                     editbuilder.insert(posToInsert, token);
 
                     // move the curson
-                    var newSelection = new vscode.Selection(posToInsert, posToInsert);
+                    var newSelection = new Selection(posToInsert, posToInsert);
                     editor.selection = newSelection;
                 });
             }, prevTimeout + timeout)
@@ -41,7 +41,7 @@ export function type(textToInsert:string) {
 
         // after a pause char (like a coma), take a breath
         if (charsToPauseOn.indexOf(token) != -1) {
-            prevTimeout += JitterRange[1] * 2;
+            prevTimeout += maxSpeed * 2;
         }
 
 
