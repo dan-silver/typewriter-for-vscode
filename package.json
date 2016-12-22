@@ -2,7 +2,7 @@
     "name": "typewriter",
     "displayName": "Typewriter",
     "description": "Human like typing for GIFs and live demos. No more typos in front of an audience!",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "dansilver",
     "engines": {
         "vscode": "^1.5.0"
@@ -11,8 +11,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.playback",
-        "onCommand:extension.setTypewriter"
+        "onCommand:typewriter.playback",
+        "onCommand:typewriter.setTypewriter"
     ],
     "main": "./out/src/extension",
 
@@ -30,11 +30,14 @@
     },
     "contributes": {
         "commands": [{
-            "command": "extension.playback",
+            "command": "typewriter.playback",
             "title": "Typewriter: Play"
         }, {
-            "command": "extension.setTypewriter",
+            "command": "typewriter.setTypewriter",
             "title": "Typewriter: Set from selection"
+        }, {
+            "command": "typewriter.pause",
+            "title": "Typewriter: Pause/Resume playback"
         }]
     },
     "scripts": {
